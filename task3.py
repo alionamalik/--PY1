@@ -1,10 +1,14 @@
 import random
 
 
-def get_unique_list_numbers() -> list[int]:
-    list_ = [random.randint(-10, 10) for n in range(16)]  # TODO написать функцию для получения списка уникальных целых чисел
-    while not len(list_) == len(set(list_)):
-        list_ = [random.randint(-10, 10) for n in range(16)]
+def get_unique_list_numbers(start=-10, stop=10, size=15) -> list[int]:
+  # TODO написать функцию для получения списка уникальных целых чисел
+    list_ = []
+    for index in range(size+1):
+        number = random.randint(start, stop)
+        if number not in list_:
+            list_.append(number)
+
     return list_
 
 
