@@ -3,8 +3,10 @@ import random
 
 def get_unique_list_numbers(start=-10, stop=10, size=15) -> list[int]:
   # TODO написать функцию для получения списка уникальных целых чисел
+    if stop-start+1 < size:
+        raise ValueError('size должен быть меньше stop-start+1')
     list_ = []
-    for index in range(size+1):
+    while len(list_) < size:
         number = random.randint(start, stop)
         if number not in list_:
             list_.append(number)
