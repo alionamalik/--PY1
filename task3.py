@@ -14,18 +14,10 @@ data = [
 
 def to_csv_file(filename, headers, rows, delimiter=',', new_line='\n'):
     with open(filename, 'w') as f:
-        for element in headers:
-            if headers[-1] is not element:
-                f.write(str(element) + delimiter)
-            else:
-                f.write(str(element))
+        f.write(delimiter.join(headers))
         f.write(new_line)
         for lists in rows:
-            for word in lists:
-                if lists[-1] is not word:
-                    f.writelines(word + delimiter)
-                else:
-                    f.writelines(word)
+            f.writelines(delimiter.join(lists))
             f.write(new_line)
 
 
