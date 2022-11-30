@@ -8,13 +8,13 @@ def csv_to_list_dict(filename) -> list[dict]:
     list_dict = []
     values = []
     with open(filename, 'r') as f:
-        list_ = f.readlines()
-        headers = list_[0].rstrip().split(sep=',')
-        for row in list_[1:]:
+        headers = f.readline().rstrip().split(sep=',')
+        for row in f:
             values.append(row.rstrip().split(sep=','))
-    for element in values:
-        dict_element = dict(zip(headers, element))
-        list_dict.append(dict_element)
+            print(list_dict)
+        for element in values:
+            dict_element = dict(zip(headers, element))
+            list_dict.append(dict_element)
 
     return list_dict
 
